@@ -11,8 +11,16 @@ let
           cp -r ./* $out/
         '';
       };
+      allFiles = builtins.attrNames (builtins.readDir configDir);
+
+      sortedFiles =
+        let
+          init = if builtins.elem "init.lua" allFiles then [ "init.lua" ] else [ ];
+          rest = builtins.filter (f: f != "init.lua") allFiles;
+        in
+        init ++ rest;
     in
-    builtins.map (file: "${configDir}/${file}") (builtins.attrNames (builtins.readDir configDir));
+    builtins.map (file: "${configDir}/${file}") sortedFiles;
 
   sourceConfigFiles =
     files:
