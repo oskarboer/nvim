@@ -45,4 +45,10 @@ with pkgs.vimPlugins;
 
   nvim-autopairs
   indent-blankline-nvim
+
+  cspell-nvim
+  none-ls-nvim
+
+  nvim-dap
+  nvim-dap-python
 ]

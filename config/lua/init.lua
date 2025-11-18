@@ -90,25 +90,25 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show full 
 -- 0.11 LSP config
 --
 -- python
-vim.lsp.enable("basedpyright")
+-- vim.lsp.enable("basedpyright")
 vim.lsp.enable("pyright")
 
-vim.lsp.enable("pylsp")
-vim.lsp.config["pylsp"] = {
-	settings = {
-		pylsp = {
-			plugins = {
-				pycodestyle = {
-					ignore = { "W391" },
-					maxLineLength = 120,
-				},
-				ropeautoimport = {
-					enabled = true,
-				},
-			},
-		},
-	},
-}
+-- vim.lsp.enable("pylsp")
+-- vim.lsp.config["pylsp"] = {
+-- 	settings = {
+-- 		pylsp = {
+-- 			plugins = {
+-- 				pycodestyle = {
+-- 					ignore = { "W391" },
+-- 					maxLineLength = 120,
+-- 				},
+-- 				ropeautoimport = {
+-- 					enabled = true,
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- }
 
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("nil_ls")

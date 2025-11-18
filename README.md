@@ -10,3 +10,4 @@ Then `myNeovim.nix` defines most of the stuff like where the config is, what plu
 `plugins.nix` lists nvim specific plugins
 
 while `runtimeDeps.nix` list general packages like LSPs, linters, formatters 
+
