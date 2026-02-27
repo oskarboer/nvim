@@ -91,7 +91,8 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show full 
 --
 -- python
 -- vim.lsp.enable("basedpyright")
-vim.lsp.enable("pyright")
+-- vim.lsp.enable("pyright")
+vim.lsp.enable("ty")
 
 -- vim.lsp.enable("pylsp")
 -- vim.lsp.config["pylsp"] = {

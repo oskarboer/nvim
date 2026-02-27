@@ -2,7 +2,7 @@
   description = "My own Neovim flake";
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     neovim = {
       url = "github:nix-community/neovim-nightly-overlay";
@@ -10,7 +10,7 @@
     };
     telescope-recent-files-src = {
       url = "github:smartpde/telescope-recent-files";
-      flake =false;
+      flake = false;
     };
   };
   outputs =

@@ -73,8 +73,10 @@ local capabilities = vim.tbl_deep_extend(
 	require("cmp_nvim_lsp").default_capabilities()
 )
 
--- Example server setups
-local lspconfig = require("lspconfig")
-lspconfig.lua_ls.setup({ capabilities = capabilities })
-lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-lspconfig.gopls.setup({ capabilities = capabilities })
+vim.lsp.config("lua_lsp", { capabilities = capabilities })
+vim.lsp.config("rust_analyzer", { capabilities = capabilities })
+vim.lsp.config("gopls", { capabilities = capabilities })
+
+vim.lsp.enable("lua_lsp")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("gopls")

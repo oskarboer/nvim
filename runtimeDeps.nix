@@ -16,6 +16,7 @@
     nil
     python313Packages.debugpy
     ruff
+    ty
   ];
   # I don't know why there are two of those
   deps2 = with pkgs; [

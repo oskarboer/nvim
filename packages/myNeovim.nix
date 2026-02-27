@@ -22,7 +22,7 @@ pkgs.writeShellApplication {
   name = "nvim";
   # nodePackages seem to have issue when used with pkgs.symlinkJoin funciton
   # binary doesn't get discovered. So instead I put it here. For more info
-  # google pkgs.symlinkJoin and nodePackages doesn't work.
+  # google "pkgs.symlinkJoin and nodePackages don't work"
 
   runtimeInputs = [
     neovimRuntimeDependencies2
