@@ -50,5 +50,7 @@ with pkgs.vimPlugins;
   none-ls-nvim
 
   nvim-dap
+  nvim-dap-view
+  nvim-nio
   nvim-dap-python
 ]
