@@ -9,11 +9,8 @@ with pkgs.vimPlugins;
   luvit-meta
   lazydev-nvim
 
-  nvim-cmp
   blink-cmp
-  cmp-nvim-lsp
-  cmp-path
-  cmp_luasnip
+  friendly-snippets
 
   conform-nvim
 
