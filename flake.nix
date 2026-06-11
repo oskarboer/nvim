@@ -21,8 +21,15 @@
       telescope-recent-files-src,
     }:
     let
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
       overlayFlakeInputs = prev: final: {
-        neovim = neovim.packages.x86_64-linux.neovim;
+        neovim = neovim.packages.${final.system}.neovim;
 
         vimPlugins = final.vimPlugins // {
           telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
@@ -37,21 +44,26 @@
           pkgs = final;
         };
       };
-
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        overlays = [
-          overlayFlakeInputs
-          overlayMyNeovim
-        ];
-      };
-
+      mkPkgs =
+        system:
+        import nixpkgs {
+          inherit system;
+          overlays = [
+            overlayFlakeInputs
+            overlayMyNeovim
+          ];
+        };
     in
     {
-      packages.x86_64-linux.default = pkgs.myNeovim;
-      apps.x86_64-linux.default = {
-        type = "app";
-        program = "${pkgs.myNeovim}/bin/nvim";
-      };
+      packages = forAllSystems (system: {
+        default = (mkPkgs system).myNeovim;
+      });
+
+      apps = forAllSystems (system: {
+        default = {
+          type = "app";
+          program = "${(mkPkgs system).myNeovim}/bin/nvim";
+        };
+      });
     };
 }
